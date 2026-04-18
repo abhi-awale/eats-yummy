@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EatsYummy – Fresh Tiffin Delivered in Pune</title>
+  <meta name="description" content="EatsYummy – Homestyle tiffin service in Pune. Regular, High Protein, Jain & Patient tiffins. Starting ₹30/day." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito','Segoe UI',sans-serif;background:#FFF8EE;color:#3E1C00;overflow-x:hidden;line-height:1.6;}
+h1,h2,h3,h4,.display{font-family:'Baloo 2','Georgia',cursive;}
+a{text-decoration:none;color:inherit;}
+
+/* VARIABLES */
+:root{
+  --saffron:#FF8F00;--saffron-l:#FFA726;--turmeric:#F6B93B;
+  --masala:#3E1C00;--masala-d:#2A1000;
+  --leaf:#388E3C;--leaf-l:#66BB6A;
+  --cream:#FFF8EE;--clay:#D84315;
+  --white:#ffffff;--blue:#1976D2;
+}
+
+/* UTILITY */
+.container{max-width:1200px;margin:0 auto;padding:0 20px;}
+.tc{text-align:center;}
+
+/* SECTION TAG */
+.stag{display:inline-block;background:linear-gradient(135deg,#FFE0B2,#FFF3E0);border:2px solid #FFB74D;color:#E65100;font-family:'Baloo 2',cursive;font-weight:700;padding:4px 18px;border-radius:999px;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;}
+
+/* SECTION TITLE */
+.stitle{font-family:'Baloo 2',cursive;font-weight:900;font-size:clamp(1.9rem,4.5vw,2.9rem);color:var(--masala);line-height:1.2;margin-bottom:12px;}
+.stitle .ac{color:var(--saffron);}
+.ssub{color:rgba(62,28,0,.6);font-size:.97rem;max-width:520px;margin:0 auto 48px;}
+
+/* BUTTONS */
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--saffron),var(--clay));color:#fff;font-family:'Baloo 2',cursive;font-weight:700;padding:13px 26px;border-radius:999px;font-size:.97rem;box-shadow:0 8px 24px rgba(255,143,0,.4);transition:transform .25s,box-shadow .25s;border:none;cursor:pointer;}
+.btn-p:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 40px rgba(255,143,0,.5);}
+.btn-o{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--clay);font-family:'Baloo 2',cursive;font-weight:700;padding:11px 24px;border-radius:999px;border:2.5px solid var(--saffron);font-size:.97rem;transition:all .25s;cursor:pointer;}
+.btn-o:hover{background:linear-gradient(135deg,var(--saffron),var(--clay));color:#fff;transform:translateY(-3px);}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-family:'Baloo 2',cursive;font-weight:700;padding:13px 26px;border-radius:999px;font-size:.97rem;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .25s;}
+.btn-wa:hover{transform:translateY(-3px) scale(1.03);}
+
+/* ═══ NAVBAR ═══ */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 20px;transition:background .4s,box-shadow .4s;}
+#nav.scrolled{background:rgba(255,248,238,.96);backdrop-filter:blur(14px);box-shadow:0 4px 30px rgba(255,143,0,.15);}
+.nav-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-ic{width:42px;height:42px;background:linear-gradient(135deg,#FFA726,#D84315);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 12px rgba(255,143,0,.4);}
+.logo-tx{font-family:'Baloo 2',cursive;font-weight:900;font-size:1.4rem;color:var(--masala);}
+.logo-tx span{color:var(--saffron);}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+.nav-links a{font-family:'Baloo 2',cursive;font-weight:600;font-size:.93rem;color:var(--masala);padding:6px 12px;border-radius:10px;transition:all .2s;}
+.nav-links a:hover{color:var(--saffron);background:rgba(255,143,0,.08);}
+.hb{display:none;background:none;border:none;cursor:pointer;padding:8px;border-radius:10px;}
+.hb span{display:block;width:24px;height:2.5px;background:var(--masala);border-radius:4px;margin:5px 0;transition:all .3s;}
+#mob{display:none;max-width:1200px;margin:10px auto 0;background:rgba(255,248,238,.97);border-radius:18px;border:1px solid rgba(255,143,0,.15);box-shadow:0 8px 32px rgba(255,143,0,.1);}
+#mob a{display:block;font-family:'Baloo 2',cursive;font-weight:600;color:var(--masala);padding:12px 20px;border-bottom:1px solid rgba(255,143,0,.08);transition:background .2s;}
+#mob a:hover{background:rgba(255,143,0,.06);color:var(--saffron);}
+#mob .mc{margin:12px 16px 16px;display:block;text-align:center;border-radius:14px;padding:12px;background:linear-gradient(135deg,var(--saffron),var(--clay));color:#fff;font-family:'Baloo 2',cursive;font-weight:700;}
+
+/* ═══ HERO ═══ */
+#hero{min-height:100vh;background:radial-gradient(ellipse at 70% 40%,#FFE0B2 0%,#FFF8EE 55%,#E8F5E9 100%);display:flex;align-items:center;padding:100px 20px 80px;position:relative;overflow:hidden;}
+.h-blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.28;pointer-events:none;}
+.hero-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%;}
+.h-tag{display:inline-block;background:linear-gradient(135deg,#FFE0B2,#FFF3E0);border:2px solid #FFB74D;color:#E65100;font-family:'Baloo 2',cursive;font-weight:700;padding:6px 20px;border-radius:999px;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:18px;}
+.h-title{font-family:'Baloo 2',cursive;font-weight:900;font-size:clamp(2.5rem,5.5vw,4.2rem);line-height:1.12;color:var(--masala);margin-bottom:20px;}
+.h-title .gr{background:linear-gradient(135deg,var(--saffron),var(--clay));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.h-sub{font-size:1.08rem;color:rgba(62,28,0,.65);margin-bottom:34px;max-width:450px;line-height:1.72;}
+.h-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+.h-stats{display:flex;gap:24px;flex-wrap:wrap;}
+.st-n{font-family:'Baloo 2',cursive;font-weight:900;font-size:1.9rem;line-height:1;}
+.st-l{font-size:.76rem;color:rgba(62,28,0,.5);font-weight:600;margin-top:2px;}
+.st-div{width:1px;background:rgba(255,143,0,.2);align-self:stretch;}
+
+/* 3D TIFFIN */
+.h-vis{display:flex;justify-content:center;align-items:center;position:relative;}
+.tf-wrap{position:relative;perspective:800px;}
+.tf-ring{position:absolute;inset:-24px;border-radius:50%;border:3px dashed rgba(255,143,0,.3);animation:spin-r 14s linear infinite;}
+@keyframes spin-r{to{transform:rotate(360deg);}}
+.tf-box{width:290px;height:290px;background:linear-gradient(145deg,#FFF3E0,#FFE0B2);border-radius:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;box-shadow:0 40px 80px -20px rgba(255,143,0,.35),0 20px 40px -10px rgba(62,28,0,.2),inset 0 2px 0 rgba(255,255,255,.7);position:relative;animation:fl-box 5s ease-in-out infinite;}
+@keyframes fl-box{0%,100%{transform:translateY(0) rotateY(-4deg);}50%{transform:translateY(-16px) rotateY(4deg);}}
+.tf-layer{width:205px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-weight:700;color:#fff;font-size:.82rem;letter-spacing:.04em;position:relative;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.15);}
+.tf-layer::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,.25),transparent);}
+.tl1{background:linear-gradient(135deg,#FF8F00,#FFA726);}
+.tl2{background:linear-gradient(135deg,#388E3C,#66BB6A);}
+.tl3{background:linear-gradient(135deg,#D84315,#FF8F00);}
+.tf-handle{position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:76px;height:20px;border:4px solid #FFA726;border-radius:999px 999px 0 0;border-bottom:none;}
+.tf-bdg{position:absolute;font-family:'Baloo 2',cursive;font-weight:700;font-size:.72rem;padding:6px 12px;border-radius:12px;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.2);}
+.tb1{top:-12px;right:-16px;background:linear-gradient(135deg,var(--leaf),#1B5E20);transform:rotate(12deg);}
+.tb2{bottom:-12px;left:-16px;background:linear-gradient(135deg,var(--saffron),var(--clay));transform:rotate(-6deg);}
+
+/* Float emojis */
+.fe{position:absolute;font-size:clamp(1.3rem,3vw,2.2rem);animation:fl-em 4s ease-in-out infinite;pointer-events:none;filter:drop-shadow(0 4px 8px rgba(0,0,0,.12));}
+@keyframes fl-em{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+
+/* Wave */
+.wave-b{position:absolute;bottom:0;left:0;right:0;line-height:0;}
+
+/* ═══ MARQUEE ═══ */
+.mq-strip{background:linear-gradient(135deg,var(--saffron),var(--clay));padding:11px 0;overflow:hidden;}
+.mq-track{display:flex;gap:28px;width:max-content;animation:mq 22s linear infinite;}
+.mq-track span{color:#fff;font-family:'Baloo 2',cursive;font-weight:600;font-size:.88rem;white-space:nowrap;}
+@keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ═══ PRODUCTS ═══ */
+#products{padding:88px 20px;background:#fff;background-image:radial-gradient(circle at 1px 1px,rgba(255,143,0,.07) 1px,transparent 0);background-size:40px 40px;}
+.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:16px;}
+.pc{border-radius:24px;overflow:hidden;transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s;position:relative;}
+.pc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.3),transparent);pointer-events:none;z-index:1;}
+.pc:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 32px 60px rgba(255,143,0,.28);}
+.pc-r{background:linear-gradient(145deg,#FFF3E0,#FFE0B2);}
+.pc-p{background:linear-gradient(145deg,#E8F5E9,#C8E6C9);}
+.pc-pa{background:linear-gradient(145deg,#E3F2FD,#BBDEFB);}
+.pc-j{background:linear-gradient(145deg,#FFF8E1,#FFF176);}
+.pcb{padding:26px;position:relative;z-index:2;}
+.pc-ic{width:58px;height:58px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin-bottom:14px;box-shadow:0 6px 20px rgba(0,0,0,.14);}
+.ic-o{background:linear-gradient(135deg,#FFA726,#E65100);}
+.ic-g{background:linear-gradient(135deg,#66BB6A,#1B5E20);}
+.ic-b{background:linear-gradient(135deg,#42A5F5,#1565C0);}
+.ic-y{background:linear-gradient(135deg,#FFEE58,#F57F17);}
+.pc-nm{font-family:'Baloo 2',cursive;font-weight:800;font-size:1.15rem;color:var(--masala);margin-bottom:8px;}
+.pc-ds{font-size:.84rem;color:rgba(62,28,0,.62);margin-bottom:14px;line-height:1.55;}
+.pc-tgs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.tag{font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:999px;}
+.to{background:#FFE0B2;color:#E65100;}
+.tg{background:#C8E6C9;color:#2E7D32;}
+.tb{background:#BBDEFB;color:#1565C0;}
+.ty{background:#FFF9C4;color:#F57F17;}
+.pc-pr{font-family:'Baloo 2',cursive;font-weight:900;font-size:1.55rem;color:var(--masala);}
+.pc-pr span{font-size:.88rem;font-weight:400;color:rgba(62,28,0,.42);font-family:'Nunito',sans-serif;}
+.pc-bar{height:6px;}
+.bar-o{background:linear-gradient(135deg,#FFA726,#E65100);}
+.bar-g{background:linear-gradient(135deg,#66BB6A,#1B5E20);}
+.bar-b{background:linear-gradient(135deg,#42A5F5,#1565C0);}
+.bar-y{background:linear-gradient(135deg,#FFEE58,#F9A825);}
+
+/* WHY */
+.wg{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px;}
+.wc{text-align:center;padding:26px 18px;border-radius:20px;background:#FFFBF5;border:1.5px solid transparent;transition:all .3s;}
+.wc:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(255,143,0,.1);border-color:rgba(255,143,0,.2);}
+.w-ic{font-size:2.2rem;margin-bottom:10px;}
+.w-ti{font-family:'Baloo 2',cursive;font-weight:700;font-size:.97rem;color:var(--masala);margin-bottom:5px;}
+.w-ds{font-size:.81rem;color:rgba(62,28,0,.52);line-height:1.5;}
+
+/* ═══ PRICING ═══ */
+#pricing{padding:88px 20px;background:radial-gradient(ellipse at top,#FFF3E0,#FFF8EE 65%);}
+.ptabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;}
+.ptab{font-family:'Baloo 2',cursive;font-weight:700;padding:9px 22px;border-radius:999px;border:2.5px solid transparent;cursor:pointer;font-size:.88rem;background:#fff;transition:all .25s;}
+.pt-o{border-color:var(--saffron);color:var(--saffron);}
+.pt-g{border-color:var(--leaf);color:var(--leaf);}
+.pt-y{border-color:#F9A825;color:#E65100;}
+.pt-b{border-color:var(--blue);color:var(--blue);}
+.pt-o.act,.pt-o:hover{background:var(--saffron);color:#fff;}
+.pt-g.act,.pt-g:hover{background:var(--leaf);color:#fff;}
+.pt-y.act,.pt-y:hover{background:#F9A825;color:#fff;}
+.pt-b.act,.pt-b:hover{background:var(--blue);color:#fff;}
+.prg{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;max-width:940px;margin:0 auto;}
+.prc{background:#fff;border-radius:28px;padding:34px 26px;border:2px solid transparent;transition:all .35s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.05);}
+.prc:hover{border-color:var(--saffron);transform:translateY(-8px);box-shadow:0 24px 48px rgba(255,143,0,.18);}
+.prc.feat{background:linear-gradient(135deg,#FF8F00,#D84315);color:#fff;transform:scale(1.04);box-shadow:0 20px 60px rgba(255,143,0,.38);}
+.prc.feat:hover{transform:scale(1.04) translateY(-8px);}
+.pop-b{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.22);color:#fff;font-family:'Baloo 2',cursive;font-weight:700;font-size:.68rem;padding:4px 12px;border-radius:999px;}
+.p-em{font-size:2rem;margin-bottom:8px;}
+.p-pl{font-family:'Baloo 2',cursive;font-weight:800;font-size:1.25rem;margin-bottom:4px;}
+.p-tl{font-size:.81rem;opacity:.62;margin-bottom:18px;}
+.p-am{font-family:'Baloo 2',cursive;font-weight:900;font-size:2.7rem;line-height:1;}
+.p-pe{font-size:.82rem;opacity:.52;margin-bottom:4px;}
+.p-am2{font-family:'Baloo 2',cursive;font-weight:900;font-size:1.75rem;}
+.p-pe2{font-size:.74rem;opacity:.48;margin-bottom:18px;}
+.p-ul{list-style:none;margin-bottom:26px;display:flex;flex-direction:column;gap:9px;}
+.p-ul li{display:flex;align-items:center;gap:8px;font-size:.86rem;}
+.ck-y{color:#66BB6A;}
+.ck-n{color:rgba(62,28,0,.22);}
+.feat .ck-y{color:#FFD54F;}
+.feat .ck-n{color:rgba(255,255,255,.28);}
+.feat .p-ul li{color:rgba(255,255,255,.82);}
+.cta-w{display:flex;align-items:center;justify-content:center;background:#fff;color:var(--saffron);font-family:'Baloo 2',cursive;font-weight:700;padding:12px 24px;border-radius:999px;transition:all .25s;font-size:.9rem;}
+.cta-w:hover{transform:scale(1.04);}
+
+/* ═══ ABOUT ═══ */
+#about{padding:88px 20px;background:linear-gradient(135deg,#3E1C00 0%,#5D2E07 100%);}
+.ab-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.3fr;gap:72px;align-items:center;}
+.ab-vis{display:flex;justify-content:center;align-items:center;position:relative;}
+.ab-plate{width:250px;height:250px;background:radial-gradient(circle at 35% 30%,#fff9f0,#f5e6c8);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:5rem;box-shadow:0 0 0 8px #e8c97e,0 0 0 14px #c9a94f,0 24px 60px rgba(62,28,0,.3);animation:fl-pl 5s ease-in-out infinite;}
+@keyframes fl-pl{0%,100%{transform:translateY(0);}50%{transform:translateY(-18px);}}
+.ab-bdg{position:absolute;font-family:'Baloo 2',cursive;font-weight:800;font-size:.78rem;padding:8px 14px;border-radius:14px;color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.22);}
+.ab1{top:0;right:-8px;background:linear-gradient(135deg,var(--saffron),#E65100);transform:rotate(6deg);animation:fl-pl 5s ease-in-out infinite;animation-delay:.5s;}
+.ab2{bottom:0;left:-8px;background:linear-gradient(135deg,var(--leaf),#1B5E20);transform:rotate(-4deg);animation:fl-pl 5s ease-in-out infinite;animation-delay:1s;}
+.ab-tag2{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#FFB74D;font-family:'Baloo 2',cursive;font-weight:700;padding:5px 18px;border-radius:999px;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px;}
+.ab-ti{font-family:'Baloo 2',cursive;font-weight:900;font-size:clamp(1.9rem,3.8vw,2.7rem);color:#fff;line-height:1.2;margin-bottom:18px;}
+.ab-ti .ac2{color:var(--turmeric);}
+.ab-tx{color:rgba(255,255,255,.65);font-size:.95rem;line-height:1.78;margin-bottom:12px;}
+.ab-sg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0;}
+.ab-s{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px;}
+.ab-sn{font-family:'Baloo 2',cursive;font-weight:900;font-size:1.9rem;color:var(--turmeric);}
+.ab-sl{font-size:.76rem;color:rgba(255,255,255,.48);margin-top:2px;}
+
+/* ═══ TESTIMONIALS ═══ */
+#testimonials{padding:88px 20px;background:#FFF8EE;background-image:radial-gradient(circle at 1px 1px,rgba(255,143,0,.07) 1px,transparent 0);background-size:40px 40px;}
+.tg2{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.tc2{background:#fff;border-radius:24px;padding:26px;box-shadow:0 6px 30px rgba(255,143,0,.08);border:1.5px solid rgba(255,143,0,.08);transition:transform .3s,box-shadow .3s;}
+.tc2:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(255,143,0,.14);}
+.stars{color:#FFB300;font-size:1.05rem;letter-spacing:3px;margin-bottom:13px;}
+.t-tx{font-size:.86rem;color:rgba(62,28,0,.7);line-height:1.7;margin-bottom:18px;}
+.t-au{display:flex;align-items:center;gap:12px;}
+.t-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-weight:900;font-size:1.15rem;color:#fff;flex-shrink:0;}
+.t-nm{font-family:'Baloo 2',cursive;font-weight:700;font-size:.93rem;color:var(--masala);}
+.t-rl{font-size:.73rem;color:rgba(62,28,0,.42);}
+.r-badge{display:inline-flex;align-items:center;gap:16px;background:#fff;border-radius:20px;padding:18px 30px;box-shadow:0 8px 32px rgba(255,143,0,.1);border:1.5px solid rgba(255,143,0,.09);margin-top:44px;}
+.r-n{font-family:'Baloo 2',cursive;font-weight:900;font-size:1.9rem;color:var(--masala);}
+.r-s{font-size:.73rem;color:rgba(62,28,0,.44);}
+.r-dv{width:1px;height:38px;background:rgba(255,143,0,.14);}
+.r-i{font-size:.8rem;color:rgba(62,28,0,.5);font-weight:600;}
+
+/* ═══ CONTACT ═══ */
+#contact{padding:88px 20px;background:#fff;}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;max-width:960px;margin:0 auto;}
+.ci{display:flex;align-items:flex-start;gap:14px;padding:18px;border-radius:20px;background:#FFFBF5;border:2px solid transparent;transition:all .3s;margin-bottom:12px;}
+.ci:hover{border-color:rgba(255,143,0,.2);box-shadow:0 8px 28px rgba(255,143,0,.1);transform:translateX(4px);}
+.ci-ic{width:50px;height:50px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,.09);}
+.c-wa{background:#25D366;}
+.c-ph{background:linear-gradient(135deg,var(--saffron),var(--clay));}
+.c-lc{background:linear-gradient(135deg,#42A5F5,#1565C0);}
+.c-tm{background:linear-gradient(135deg,#FFEE58,#F9A825);}
+.c-lb{font-family:'Baloo 2',cursive;font-weight:700;font-size:.98rem;color:var(--masala);}
+.c-vl{font-size:.83rem;color:rgba(62,28,0,.58);margin-top:2px;line-height:1.5;}
+.c-ar{margin-left:auto;font-size:1rem;color:rgba(62,28,0,.22);align-self:center;}
+/* Order card */
+.oc{background:linear-gradient(135deg,var(--masala),#5D2E07);border-radius:28px;padding:38px 30px;text-align:center;color:#fff;box-shadow:0 20px 60px rgba(62,28,0,.23);}
+.oc-em{font-size:3.8rem;margin-bottom:14px;display:block;animation:fl-pl 5s ease-in-out infinite;}
+.oc-ti{font-family:'Baloo 2',cursive;font-weight:900;font-size:1.7rem;margin-bottom:11px;}
+.oc-ds{color:rgba(255,255,255,.62);font-size:.88rem;line-height:1.72;margin-bottom:26px;}
+.oc-wa{display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;font-family:'Baloo 2',cursive;font-weight:800;font-size:1.07rem;padding:15px 26px;border-radius:18px;width:100%;box-shadow:0 6px 20px rgba(37,211,102,.32);transition:transform .25s;}
+.oc-wa:hover{transform:scale(1.03);}
+.oc-nt{color:rgba(255,255,255,.28);font-size:.73rem;margin-top:8px;margin-bottom:22px;}
+.oc-ms{display:flex;justify-content:center;align-items:center;gap:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);}
+.om-n{font-family:'Baloo 2',cursive;font-weight:900;font-size:1.15rem;}
+.om-l{font-size:.68rem;color:rgba(255,255,255,.42);}
+.om-d{width:1px;height:28px;background:rgba(255,255,255,.14);}
+
+/* ═══ SOCIAL ═══ */
+#social{padding:66px 20px;background:linear-gradient(135deg,var(--masala),#5D2E07);text-align:center;}
+.so-ti{font-family:'Baloo 2',cursive;font-weight:900;font-size:clamp(1.7rem,4vw,2.5rem);color:#fff;margin-bottom:8px;}
+.so-su{color:rgba(255,255,255,.52);margin-bottom:32px;font-size:.93rem;}
+.so-ics{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.si{width:60px;height:60px;border-radius:18px;display:flex;align-items:center;justify-content:center;transition:all .3s cubic-bezier(.34,1.56,.64,1);}
+.si:hover{transform:translateY(-8px) scale(1.12);}
+.si-wa2{background:#25D366;box-shadow:0 8px 24px rgba(37,211,102,.38);}
+.si-ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366);box-shadow:0 8px 24px rgba(220,39,67,.32);}
+.si-fb{background:#1877F2;box-shadow:0 8px 24px rgba(24,119,242,.32);}
+.si-gm{background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.13);}
+.so-hn{color:rgba(255,255,255,.28);font-size:.78rem;margin-top:18px;}
+
+/* ═══ FOOTER ═══ */
+footer{background:#1A0A00;color:#fff;padding:34px 20px;}
+.ft-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;}
+.ft-cp{color:rgba(255,255,255,.3);font-size:.76rem;text-align:center;line-height:1.6;}
+.ft-cta{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-family:'Baloo 2',cursive;font-weight:700;padding:10px 22px;border-radius:12px;font-size:.88rem;transition:transform .2s;}
+.ft-cta:hover{transform:scale(1.05);}
+
+/* ═══ FLOATING WA ═══ */
+.wa-fl{position:fixed;bottom:24px;right:20px;z-index:999;display:flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-family:'Baloo 2',cursive;font-weight:800;font-size:.92rem;padding:12px 20px;border-radius:999px;box-shadow:0 8px 32px rgba(37,211,102,.44);text-decoration:none;animation:wa-p 2.2s ease-in-out infinite;transition:transform .2s;}
+.wa-fl:hover{animation:none;transform:scale(1.08);}
+@keyframes wa-p{0%,100%{transform:scale(1);box-shadow:0 8px 32px rgba(37,211,102,.44);}50%{transform:scale(1.05);box-shadow:0 12px 44px rgba(37,211,102,.58);}}
+
+/* ═══ SCROLL ANIMATIONS (progressive, never hides content) ═══ */
+.fu{transition:opacity .7s ease,transform .7s ease;}
+.fu.hidden-anim{opacity:0;transform:translateY(38px);}
+.fu.visible-anim{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.05s;}
+.d2{transition-delay:.15s;}
+.d3{transition-delay:.25s;}
+.d4{transition-delay:.35s;}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .pg{grid-template-columns:repeat(2,1fr);}
+  .wg{grid-template-columns:repeat(2,1fr);}
+  .tg2{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .hero-in{grid-template-columns:1fr;gap:36px;text-align:center;}
+  .h-btns{justify-content:center;}
+  .h-stats{justify-content:center;}
+  .h-vis{order:-1;}
+  .tf-box{width:230px;height:230px;}
+  .tf-layer{width:165px;height:44px;font-size:.76rem;}
+  .nav-links,.nav-cta-d{display:none!important;}
+  .hb{display:block;}
+  .ab-in{grid-template-columns:1fr;gap:44px;}
+  .ab-vis{order:-1;}
+  .cg{grid-template-columns:1fr;}
+  .prg{grid-template-columns:1fr;}
+  .prc.feat{transform:none;}
+  .prc.feat:hover{transform:translateY(-8px);}
+  .pg{grid-template-columns:1fr;}
+  .wg{grid-template-columns:repeat(2,1fr);}
+  .tg2{grid-template-columns:1fr;}
+  .ft-in{flex-direction:column;text-align:center;}
+  .wa-fl span{display:none;}
+  .wa-fl{padding:14px;border-radius:50%;width:52px;height:52px;justify-content:center;}
+}
+@media(max-width:480px){
+  .wg{grid-template-columns:1fr;}
+  .st-div{display:none;}
+  .ptab{font-size:.78rem;padding:7px 13px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#hero" class="logo">
+      <div class="logo-ic">🍱</div>
+      <span class="logo-tx">Eats<span>Yummy</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#products">Menu</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/919028874048?text=Hi!%20I%20want%20to%20order%20tiffin%20from%20EatsYummy." target="_blank" class="btn-p nav-cta-d" style="padding:10px 22px;font-size:.88rem;">📲 Order Now</a>
+    <button class="hb" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div id="mob">
+    <a href="#products" onclick="cm()">🍛 Menu</a>
+    <a href="#pricing" onclick="cm()">💰 Pricing</a>
+    <a href="#about" onclick="cm()">🏠 About</a>
+    <a href="#testimonials" onclick="cm()">⭐ Reviews</a>
+    <a href="#contact" onclick="cm()">📞 Contact</a>
+    <a href="https://wa.me/919028874048?text=Hi!%20I%20want%20to%20order%20tiffin." target="_blank" class="mc">📲 Order on WhatsApp</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="h-blob" style="width:460px;height:460px;background:#FFB74D;top:-110px;right:-90px;"></div>
+  <div class="h-blob" style="width:300px;height:300px;background:#A5D6A7;bottom:-50px;left:-50px;"></div>
+  <div class="h-blob" style="width:260px;height:260px;background:#FFE082;top:48%;left:36%;"></div>
+  <span class="fe" style="top:13%;left:3%;animation-delay:0s;">🍛</span>
+  <span class="fe" style="top:22%;right:5%;animation-delay:.8s;">🥗</span>
+  <span class="fe" style="bottom:22%;left:6%;animation-delay:1.5s;">🍚</span>
+  <span class="fe" style="top:65%;right:2%;animation-delay:.4s;">🫓</span>
+  <span class="fe" style="bottom:12%;right:10%;animation-delay:2s;">🥦</span>
+  <div class="hero-in">
+    <div>
+      <div class="h-tag">🍱 Pune's Favourite Tiffin Service</div>
+      <h1 class="h-title">Ghar Jaisa<br/><span class="gr">Khana,</span><br/>Roz Taaza!</h1>
+      <p class="h-sub">Homestyle tiffins starting at just <strong style="color:var(--saffron)">₹30/day</strong>. Regular, High Protein, Jain &amp; Patient-friendly options — freshly delivered across Pune.</p>
+      <div class="h-btns">
+        <a href="https://wa.me/919028874048?text=Hi!%20I%20want%20to%20subscribe%20to%20EatsYummy%20tiffin." target="_blank" class="btn-wa">📲 Order on WhatsApp</a>
+        <a href="#products" class="btn-o">Explore Menu</a>
+      </div>
+      <div class="h-stats">
+        <div><div class="st-n" style="color:var(--saffron)">500+</div><div class="st-l">Happy Customers</div></div>
+        <div class="st-div"></div>
+        <div><div class="st-n" style="color:var(--leaf)">4</div><div class="st-l">Tiffin Types</div></div>
+        <div class="st-div"></div>
+        <div><div class="st-n" style="color:var(--clay)">₹30</div><div class="st-l">Starting Price</div></div>
+        <div class="st-div"></div>
+        <div><div class="st-n" style="color:var(--masala)">3yrs</div><div class="st-l">Of Service</div></div>
+      </div>
+    </div>
+    <div class="h-vis">
+      <div class="tf-wrap">
+        <div class="tf-ring"></div>
+        <div class="tf-box" id="tfBox">
+          <div class="tf-handle"></div>
+          <div class="tf-layer tl1">🍲 DAL &amp; SABZI</div>
+          <div class="tf-layer tl2">🍚 RICE &amp; CHAPATI</div>
+          <div class="tf-layer tl3">🥗 SALAD &amp; PAPAD</div>
+          <div class="tf-bdg tb1">✅ Fresh Daily!</div>
+          <div class="tf-bdg tb2">💰 From ₹30/day</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wave-b">
+    <svg viewBox="0 0 1440 65" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;">
+      <path d="M0,32 C360,65 1080,0 1440,32 L1440,65 L0,65 Z" fill="#FF8F00"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="mq-strip">
+  <div class="mq-track">
+    <span>🍱 Fresh Tiffin Daily</span><span>•</span><span>💪 High Protein Options</span><span>•</span>
+    <span>🌿 Jain — No Onion No Garlic</span><span>•</span><span>💊 Patient Diet Tiffin</span><span>•</span>
+    <span>💰 From ₹30/day</span><span>•</span><span>📅 Daily · Weekly · Monthly</span><span>•</span>
+    <span>🏠 Home Delivery in Pune</span><span>•</span><span>📲 Order on WhatsApp</span><span>•</span>
+    <span>🍱 Fresh Tiffin Daily</span><span>•</span><span>💪 High Protein Options</span><span>•</span>
+    <span>🌿 Jain — No Onion No Garlic</span><span>•</span><span>💊 Patient Diet Tiffin</span><span>•</span>
+    <span>💰 From ₹30/day</span><span>•</span><span>📅 Daily · Weekly · Monthly</span><span>•</span>
+    <span>🏠 Home Delivery in Pune</span><span>•</span><span>📲 Order on WhatsApp</span><span>•</span>
+  </div>
+</div>
+
+<!-- ═══ PRODUCTS / MENU ═══ -->
+<section id="products">
+  <div class="container">
+    <div class="tc fu d1">
+      <div class="stag">🍽️ Our Tiffin Menu</div>
+      <h2 class="stitle">Four Amazing Options,<br/><span class="ac">One Great Taste</span></h2>
+      <p class="ssub">Every tiffin is freshly prepared with quality ingredients. Choose the plan that fits your lifestyle and dietary needs.</p>
+    </div>
+    <div class="pg">
+      <!-- Regular -->
+      <div class="pc pc-r fu d1">
+        <div class="pcb">
+          <div class="pc-ic ic-o">🍱</div>
+          <div class="pc-nm">Regular Tiffin</div>
+          <p class="pc-ds">Balanced homestyle meals — dal, sabzi, chapati, rice, salad &amp; papad. Perfect for everyday nutrition and satisfaction.</p>
+          <div class="pc-tgs">
+            <span class="tag to">Dal Tadka</span><span class="tag to">Sabzi</span><span class="tag to">Rice</span><span class="tag to">Chapati</span><span class="tag to">Salad</span><span class="tag to">Papad</span>
+          </div>
+          <div class="pc-pr">₹30 <span>/ meal onwards</span></div>
+        </div>
+        <div class="pc-bar bar-o"></div>
+      </div>
+      <!-- High Protein -->
+      <div class="pc pc-p fu d2">
+        <div class="pcb">
+          <div class="pc-ic ic-g">💪</div>
+          <div class="pc-nm">High Protein Tiffin</div>
+          <p class="pc-ds">Fuel your fitness goals! Extra paneer, sprouts, soya, eggs &amp; protein-rich recipes designed for active lifestyles.</p>
+          <div class="pc-tgs">
+            <span class="tag tg">Paneer</span><span class="tag tg">Sprouts</span><span class="tag tg">Soya Chunks</span><span class="tag tg">Dal Protein</span><span class="tag tg">Eggs</span>
+          </div>
+          <div class="pc-pr">₹80 <span>/ meal onwards</span></div>
+        </div>
+        <div class="pc-bar bar-g"></div>
+      </div>
+      <!-- Patient -->
+      <div class="pc pc-pa fu d3">
+        <div class="pcb">
+          <div class="pc-ic ic-b">💊</div>
+          <div class="pc-nm">Patient Tiffin</div>
+          <p class="pc-ds">Fully <strong>customizable</strong> diet-based tiffins. Diabetic, low-sodium, post-surgery &amp; recovery-friendly meals crafted with care.</p>
+          <div class="pc-tgs">
+            <span class="tag tb">Diabetic-safe</span><span class="tag tb">Low Sodium</span><span class="tag tb">Post-Surgery</span><span class="tag tb">Custom Diet</span>
+          </div>
+          <div class="pc-pr">₹100 <span>/ meal onwards</span></div>
+        </div>
+        <div class="pc-bar bar-b"></div>
+      </div>
+      <!-- Jain -->
+      <div class="pc pc-j fu d4">
+        <div class="pcb">
+          <div class="pc-ic ic-y">🌿</div>
+          <div class="pc-nm">Jain Tiffin</div>
+          <p class="pc-ds">100% <strong>No Onion · No Garlic</strong>. Pure satvik meals following Jain food principles with fresh seasonal vegetables.</p>
+          <div class="pc-tgs">
+            <span class="tag ty">No Onion</span><span class="tag ty">No Garlic</span><span class="tag ty">Satvik</span><span class="tag ty">Pure Veg</span>
+          </div>
+          <div class="pc-pr">₹60 <span>/ meal onwards</span></div>
+        </div>
+        <div class="pc-bar bar-y"></div>
+      </div>
+    </div>
+
+    <!-- Why Us -->
+    <div class="tc" style="margin-top:70px;">
+      <div class="stag">⭐ Why EatsYummy?</div>
+      <h2 class="stitle">Reasons Our Customers <span class="ac">Love Us</span></h2>
+    </div>
+    <div class="wg">
+      <div class="wc fu d1"><div class="w-ic">🧑‍🍳</div><div class="w-ti">Home-Cooked Quality</div><p class="w-ds">Made fresh every day by experienced home cooks using traditional recipes and quality ingredients.</p></div>
+      <div class="wc fu d2"><div class="w-ic">🚀</div><div class="w-ti">Fast &amp; On-Time Delivery</div><p class="w-ds">Reliable, punctual tiffin delivery across Pune — rain or shine, every single day without fail.</p></div>
+      <div class="wc fu d3"><div class="w-ic">🧼</div><div class="w-ti">Hygienic Kitchen</div><p class="w-ds">Clean kitchen with FSSAI-compliant practices. Only fresh, quality ingredients — no preservatives.</p></div>
+      <div class="wc fu d4"><div class="w-ic">💬</div><div class="w-ti">WhatsApp Support</div><p class="w-ds">Always reachable for changes, feedback, or special requests. We respond in minutes!</p></div>
+    </div>
+    <div class="tc" style="margin-top:44px;">
+      <a href="https://wa.me/919028874048?text=Hi!%20I%20want%20to%20know%20more%20about%20the%20tiffin%20menu." target="_blank" class="btn-p">📲 Ask About Menu on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section id="pricing">
+  <div class="container">
+    <div class="tc fu">
+      <div class="stag">💰 Affordable Plans</div>
+      <h2 class="stitle">Simple, <span class="ac">Transparent</span> Pricing</h2>
+      <p class="ssub">Pay daily, weekly or monthly — save more with longer plans. No hidden charges, no lock-in contracts.</p>
+    </div>
+    <div class="ptabs fu">
+      <button class="ptab pt-o act" onclick="switchTab('regular',this)">🍱 Regular</button>
+      <button class="ptab pt-g"     onclick="switchTab('protein',this)">💪 High Protein</button>
+      <button class="ptab pt-y"     onclick="switchTab('jain',this)">🌿 Jain</button>
+      <button class="ptab pt-b"     onclick="switchTab('patient',this)">💊 Patient</button>
+    </div>
+    <div class="prg fu">
+      <!-- Daily -->
+      <div class="prc">
+        <div class="p-em">☀️</div>
+        <div class="p-pl">Daily</div>
+        <p class="p-tl" style="color:rgba(62,28,0,.6)">Flexible day-by-day ordering</p>
+        <div class="p-am" id="pd">₹30</div>
+        <div class="p-pe" style="color:rgba(62,28,0,.5)">per meal</div>
+        <ul class="p-ul" style="color:rgba(62,28,0,.7)">
+          <li><span class="ck-y">✓</span> Pay per day — no commitment</li>
+          <li><span class="ck-y">✓</span> Cancel or pause anytime</li>
+          <li><span class="ck-y">✓</span> 1 or 2 meals per day option</li>
+          <li><span class="ck-n">✗</span> No prepaid savings</li>
+        </ul>
+        <a href="https://wa.me/919028874048?text=Hi!%20I%20want%20daily%20tiffin." target="_blank" class="btn-o" style="justify-content:center;font-size:.88rem;width:100%;">Order Daily</a>
+      </div>
+      <!-- Weekly featured -->
+      <div class="prc feat">
+        <div class="pop-b">⭐ Most Popular</div>
+        <div class="p-em">📅</div>
+        <div class="p-pl">Weekly</div>
+        <p class="p-tl">7 days prepaid — save up to 10%</p>
+        <div class="p-am" id="pw">₹190</div>
+        <div class="p-pe" style="color:rgba(255,255,255,.55)">per week (7 days)</div>
+        <ul class="p-ul">
+          <li><span class="ck-y">✓</span> 7 days full coverage</li>
+          <li><span class="ck-y">✓</span> ~10% savings vs daily</li>
+          <li><span class="ck-y">✓</span> 1 or 2 meals per day</li>
+          <li><span class="ck-y">✓</span> Priority delivery slot</li>
+        </ul>
+        <a href="https://wa.me/919028874048?text=Hi!%20I%20want%20the%20weekly%20tiffin%20plan." target="_blank" class="cta-w">Order Weekly</a>
+      </div>
+      <!-- Monthly -->
+      <div class="prc">
+        <div class="p-em">🗓️</div>
+        <div class="p-pl">Monthly Mess</div>
+        <p class="p-tl" style="color:rgba(62,28,0,.6)">Best value — prepaid monthly plan</p>
+        <div class="p-am2" id="pm1">₹1,500</div>
+        <div class="p-pe2" style="color:rgba(62,28,0,.44)">1 meal/day · Full Month</div>
+        <div class="p-am2" id="pm2">₹2,500</div>
+        <div class="p-pe" style="margin-bottom:18px;color:rgba(62,28,0,.44)">2 meals/day · Full Month</div>
+        <ul class="p-ul" style="color:rgba(62,28,0,.7)">
+          <li><span class="ck-y">✓</span> Maximum savings</li>
+          <li><span class="ck-y">✓</span> Prepaid convenience</li>
+          <li><span class="ck-y">✓</span> Sunday off available</li>
+          <li><span class="ck-y">✓</span> Free home delivery</li>
+        </ul>
+        <a href="https://wa.me/919028874048?text=Hi!%20I%20want%20the%20monthly%20tiffin%20mess." target="_blank" class="btn-p" style="justify-content:center;font-size:.88rem;width:100%;">Subscribe Monthly</a>
+      </div>
+    </div>
+    <p class="tc" style="margin-top:20px;font-size:.8rem;color:rgba(62,28,0,.38);">* Prices vary for High Protein, Patient &amp; Jain tiffins. Contact us for custom quotes. All prices include taxes.</p>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="ab-in">
+    <div class="ab-vis fu">
+      <div style="position:relative;display:inline-block;">
+        <div class="ab-plate">🍛</div>
+        <div class="ab-bdg ab1">🏆 Est. 2021</div>
+        <div class="ab-bdg ab2">📍 Pune Local</div>
+      </div>
+    </div>
+    <div class="fu d2">
+      <div class="ab-tag2">🏠 Our Story</div>
+      <h2 class="ab-ti">Started with a <span class="ac2">Mother's Recipe,</span> Grown with Love</h2>
+      <p class="ab-tx">EatsYummy started in 2021 with a simple mission — bring the warmth of home-cooked food to working professionals, students, and families in Pune who miss ghar ka khana.</p>
+      <p class="ab-tx">Today we serve 500+ happy customers daily with four thoughtfully designed tiffin plans — Regular, High Protein, Jain (no onion/garlic), and fully customizable Patient-friendly meals.</p>
+      <p class="ab-tx">Every tiffin is packed fresh, on time, with love — because food is not just fuel, it's comfort. No preservatives, no artificial flavours — just pure, honest cooking.</p>
+      <div class="ab-sg">
+        <div class="ab-s"><div class="ab-sn">500+</div><div class="ab-sl">Daily Deliveries</div></div>
+        <div class="ab-s"><div class="ab-sn">3+</div><div class="ab-sl">Years Serving Pune</div></div>
+        <div class="ab-s"><div class="ab-sn">4</div><div class="ab-sl">Tiffin Categories</div></div>
+        <div class="ab-s"><div class="ab-sn">4.8★</div><div class="ab-sl">Avg Customer Rating</div></div>
+      </div>
+      <a href="https://wa.me/919028874048?text=Hi!%20Tell%20me%20more%20about%20EatsYummy." target="_blank" class="btn-wa" style="display:inline-flex;">📲 Chat With Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="tc fu">
+      <div class="stag">💬 Customer Reviews</div>
+      <h2 class="stitle">What Our Customers <span class="ac">Say</span></h2>
+      <p class="ssub">Real feedback from real Pune foodies who eat with us every day 🙌</p>
+    </div>
+    <div class="tg2">
+      <div class="tc2 fu d1">
+        <div class="stars">★★★★★</div>
+        <p class="t-tx">"Been subscribing for 8 months now. The daal and chapati taste exactly like home. Never missed a single delivery. Highly recommended for working professionals!"</p>
+        <div class="t-au"><div class="t-av" style="background:linear-gradient(135deg,#FFA726,#D84315);">A</div><div><div class="t-nm">Aarav Sharma</div><div class="t-rl">IT Professional · Kothrud, Pune</div></div></div>
+      </div>
+      <div class="tc2 fu d2">
+        <div class="stars">★★★★★</div>
+        <p class="t-tx">"The Jain tiffin is a lifesaver! Pure no-onion no-garlic food with amazing variety. My whole family subscribes to the monthly plan. We save so much money too!"</p>
+        <div class="t-au"><div class="t-av" style="background:linear-gradient(135deg,#FFEE58,#F57F17);">P</div><div><div class="t-nm">Priya Jain</div><div class="t-rl">Homemaker · Aundh, Pune</div></div></div>
+      </div>
+      <div class="tc2 fu d3">
+        <div class="stars">★★★★★</div>
+        <p class="t-tx">"Post my surgery, the patient tiffin was exactly what the doctor ordered — low sodium, light, and easy to digest. Very customizable and responsive on WhatsApp!"</p>
+        <div class="t-au"><div class="t-av" style="background:linear-gradient(135deg,#42A5F5,#1565C0);">R</div><div><div class="t-nm">Rajesh Kulkarni</div><div class="t-rl">Retired Teacher · Baner, Pune</div></div></div>
+      </div>
+      <div class="tc2 fu d1">
+        <div class="stars">★★★★★</div>
+        <p class="t-tx">"High protein tiffin is amazing for my gym routine! Loads of paneer, eggs and sprouts daily. The weekly plan at ₹530 is unbeatable value. Fresh every single day!"</p>
+        <div class="t-au"><div class="t-av" style="background:linear-gradient(135deg,#66BB6A,#1B5E20);">S</div><div><div class="t-nm">Sneha Patil</div><div class="t-rl">Fitness Coach · Wakad, Pune</div></div></div>
+      </div>
+      <div class="tc2 fu d2">
+        <div class="stars">★★★★☆</div>
+        <p class="t-tx">"Great food and super affordable. Started with daily plan, switched to monthly mess after the first week. The savings are huge and quality is very consistent!"</p>
+        <div class="t-au"><div class="t-av" style="background:linear-gradient(135deg,#AB47BC,#6A1B9A);">V</div><div><div class="t-nm">Vivek Desai</div><div class="t-rl">MBA Student · Shivajinagar, Pune</div></div></div>
+      </div>
+      <div class="tc2 fu d3">
+        <div class="stars">★★★★★</div>
+        <p class="t-tx">"As a PG student, EatsYummy's ₹30/day option is incredible value. The tiffin arrives hot and fresh every day without fail. Best decision I made after coming to Pune!"</p>
+        <div class="t-au"><div class="t-av" style="background:linear-gradient(135deg,#EC407A,#880E4F);">N</div><div><div class="t-nm">Nisha Gupta</div><div class="t-rl">Engineering Student · Hadapsar, Pune</div></div></div>
+      </div>
+    </div>
+    <div class="tc">
+      <div class="r-badge fu" style="display:inline-flex;">
+        <div style="font-size:2rem;">⭐</div>
+        <div><div class="r-n">4.8 / 5.0</div><div class="r-s">Average Rating</div></div>
+        <div class="r-dv"></div>
+        <div class="r-i">200+ Verified Reviews<br/>Across Pune Customers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="container">
+    <div class="tc fu">
+      <div class="stag">📞 Get In Touch</div>
+      <h2 class="stitle">Ready to Order? <span class="ac">Let's Talk!</span></h2>
+      <p class="ssub">Reach out on WhatsApp or any of our channels. We respond within minutes during business hours!</p>
+    </div>
+    <div class="cg">
+      <!-- Contact info -->
+      <div class="fu d1">
+        <a href="https://wa.me/919028874048" target="_blank" class="ci">
+          <div class="ci-ic c-wa">📱</div>
+          <div style="flex:1"><div class="c-lb">WhatsApp</div><div class="c-vl">+91 99999 99999<br/>Tap to chat instantly</div></div>
+          <div class="c-ar">→</div>
+        </a>
+        <a href="tel:+919028874048" class="ci">
+          <div class="ci-ic c-ph">📞</div>
+          <div style="flex:1"><div class="c-lb">Call Us</div><div class="c-vl">+91 99999 99999<br/>Mon–Sun, 8am – 8pm</div></div>
+          <div class="c-ar">→</div>
+        </a>
+        <div class="ci">
+          <div class="ci-ic c-lc">📍</div>
+          <div><div class="c-lb">Service Area — Pune</div><div class="c-vl">Kothrud · Aundh · Baner · Wakad · Shivajinagar · Hadapsar · Deccan · Pimpri-Chinchwad &amp; nearby areas</div></div>
+        </div>
+        <div class="ci">
+          <div class="ci-ic c-tm">🕐</div>
+          <div><div class="c-lb">Delivery Timings</div><div class="c-vl">🌞 Lunch: 12:00 PM – 2:00 PM<br/>🌙 Dinner: 7:00 PM – 9:00 PM<br/>Monday to Sunday</div></div>
+        </div>
+      </div>
+      <!-- Order card -->
+      <div class="fu d2">
+        <div class="oc">
+          <span class="oc-em">🍱</span>
+          <div class="oc-ti">Start Your Tiffin Today!</div>
+          <p class="oc-ds">Message us on WhatsApp, tell us your location &amp; preferred plan, and we'll get your first tiffin delivered as early as tomorrow!</p>
+          <a href="https://wa.me/919028874048?text=Hi%20EatsYummy!%20I%20want%20to%20start%20a%20tiffin%20subscription.%20Please%20guide%20me." target="_blank" class="oc-wa">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Order on WhatsApp
+          </a>
+          <p class="oc-nt">We usually reply within 5 minutes during business hours</p>
+          <div class="oc-ms">
+            <div><div class="om-n">₹30</div><div class="om-l">Min/day</div></div>
+            <div class="om-d"></div>
+            <div><div class="om-n">0</div><div class="om-l">Lock-in</div></div>
+            <div class="om-d"></div>
+            <div><div class="om-n">Daily</div><div class="om-l">Fresh Delivery</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOCIAL ═══ -->
+<section id="social">
+  <div class="container fu">
+    <div class="stag" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#FFB74D;">📲 Find Us Online</div>
+    <h2 class="so-ti">Follow EatsYummy</h2>
+    <p class="so-su">Stay updated with our daily menu, offers &amp; food photos. DM us anywhere!</p>
+    <div class="so-ics">
+      <a href="https://wa.me/919028874048" target="_blank" class="si si-wa2" title="WhatsApp">
+        <svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:#fff;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      </a>
+      <a href="https://instagram.com/eatsynummy_pune" target="_blank" class="si si-ig" title="Instagram">
+        <svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:#fff;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://facebook.com/eatsynummy" target="_blank" class="si si-fb" title="Facebook">
+        <svg viewBox="0 0 24 24" style="width:28px;height:28px;fill:#fff;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://maps.google.com/?q=EatsYummy+Pune" target="_blank" class="si si-gm" title="Google Maps">
+        <svg viewBox="0 0 24 24" style="width:28px;height:28px;" fill="none" stroke="#EA4335" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </a>
+    </div>
+    <p class="so-hn">@eatsynummy_pune · Follow us for daily menu &amp; offers</p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="ft-in">
+    <div class="logo">
+      <div class="logo-ic">🍱</div>
+      <div><div class="logo-tx" style="color:#fff;">Eats<span style="color:var(--turmeric)">Yummy</span></div><div style="font-size:.7rem;color:rgba(255,255,255,.32)">Fresh Tiffin · Pune</div></div>
+    </div>
+    <div class="ft-cp">© 2024 EatsYummy. All rights reserved. · Serving Pune with love 🧡<br/>Prices subject to change. Contact us for latest rates.</div>
+    <a href="https://wa.me/919028874048?text=Hi!%20I%20want%20to%20order%20tiffin." target="_blank" class="ft-cta">💬 Order Now</a>
+  </div>
+</footer>
+
+<!-- ═══ FLOATING WA BTN ═══ -->
+<a href="https://wa.me/919028874048?text=Hi%20EatsYummy!%20I%20want%20to%20order%20tiffin." target="_blank" class="wa-fl">
+  <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  <span>Order Tiffin</span>
+</a>
+
+<script>
+// ── PRICING ──
+const pd={regular:{d:'₹30',w:'₹190',m1:'₹1,500',m2:'₹2,500'},protein:{d:'₹80',w:'₹530',m1:'₹2,200',m2:'₹3,800'},jain:{d:'₹60',w:'₹390',m1:'₹1,800',m2:'₹3,000'},patient:{d:'₹100',w:'₹660',m1:'₹2,800',m2:'₹4,500'}};
+function switchTab(t,btn){
+  const d=pd[t];
+  ['pd','pw','pm1','pm2'].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    const vals=[d.d,d.w,d.m1,d.m2];
+    el.style.cssText='transform:scale(.82);opacity:0;transition:none';
+    setTimeout(()=>{el.textContent=vals[i];el.style.cssText='transform:scale(1);opacity:1;transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s';},60);
+  });
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('act'));
+  btn.classList.add('act');
+}
+
+// ── NAVBAR ──
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>40));
+
+// ── MOBILE MENU ──
+let mo=false;
+function cm(){mo=false;document.getElementById('mob').style.display='none';}
+document.getElementById('hb').addEventListener('click',()=>{mo=!mo;document.getElementById('mob').style.display=mo?'block':'none';});
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
+});
+
+// ── TIFFIN MOUSE TILT ──
+const tfBox=document.getElementById('tfBox');
+document.addEventListener('mousemove',e=>{
+  if(!tfBox||innerWidth<768)return;
+  const r=tfBox.getBoundingClientRect();
+  const dx=(e.clientX-(r.left+r.width/2))/(r.width/2);
+  const dy=(e.clientY-(r.top+r.height/2))/(r.height/2);
+  tfBox.style.cssText=`animation:none;transform:rotateY(${dx*18}deg) rotateX(${-dy*12}deg) scale(1.04);transition:transform .15s ease;`;
+});
+document.addEventListener('mouseleave',()=>{if(tfBox)tfBox.style.cssText='animation:fl-box 5s ease-in-out infinite;';});
+
+// ── SCROLL REVEAL (progressive — content ALWAYS visible by default) ──
+// Step 1: Only after the script runs, add hidden-anim class to not-yet-seen elements
+(function(){
+  const els=document.querySelectorAll('.fu');
+  // We check which ones are already in viewport and leave those alone
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.remove('hidden-anim');
+        entry.target.classList.add('visible-anim');
+        io.unobserve(entry.target);
+      }
+    });
+  },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+  els.forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top<window.innerHeight){
+      // Already visible on load — don't animate
+      el.classList.add('visible-anim');
+    } else {
+      // Below fold — animate on scroll
+      el.classList.add('hidden-anim');
+      io.observe(el);
+    }
+  });
+})();
+</script>
+</body>
+</html>
